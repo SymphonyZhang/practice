@@ -109,17 +109,61 @@ class Home extends StatelessWidget {
         ),
         //添加Drawer(抽屉)
         //左边显示用drawer，右边显示用用endDrawer
-        drawer: Container(
-          //设置背景色
-          color: Colors.white,
-          //设置内边距
-          padding: EdgeInsets.all(8.0),
-          //设置子控件，以竖向排列显示
-          child: Column(
-            //设置主轴对齐
-            mainAxisAlignment: MainAxisAlignment.center,
+        drawer: Drawer(
+          child: ListView(
+            //内边距为0
+            padding: EdgeInsets.zero,
             children: <Widget>[
-              Text('This is Drawer'),
+              //添加头部
+              DrawerHeader(
+                child: Text('header'.toUpperCase()),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                ),
+              ),
+              //添加选项
+              ListTile(
+                //在文字的左边显示图标用leading
+                //文字
+                title: Text(
+                  'Message',
+                  textAlign: TextAlign.right,
+                ),
+                //在文字后方添加小图标
+                trailing: Icon(
+                  Icons.message,
+                  color: Colors.black12,
+                  size: 22.0,
+                ),
+              ),
+              ListTile(
+                //在文字的左边显示图标用leading
+                //文字
+                title: Text(
+                  'Favorite',
+                  textAlign: TextAlign.right,
+                ),
+                //在文字后方添加小图标
+                trailing: Icon(
+                  Icons.favorite,
+                  color: Colors.black12,
+                  size: 22.0,
+                ),
+              ),
+              ListTile(
+                //在文字的左边显示图标用leading
+                //文字
+                title: Text(
+                  'Settings',
+                  textAlign: TextAlign.right,
+                ),
+                //在文字后方添加小图标
+                trailing: Icon(
+                  Icons.settings,
+                  color: Colors.black12,
+                  size: 22.0,
+                ),
+              ),
             ],
           ),
         ),

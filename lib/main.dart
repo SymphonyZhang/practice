@@ -60,18 +60,46 @@ class Home extends StatelessWidget {
           //设置阴影大小，默认4.0
           elevation: 0.0,
           //添加Tab
-          bottom: TabBar(tabs: <Widget>[
-            Tab(icon: Icon(Icons.local_florist),),
-            Tab(icon: Icon(Icons.change_history),),
-            Tab(icon: Icon(Icons.directions_bike),),
-          ]),
+          bottom: TabBar(
+            //修改未被选择的标签颜色
+            unselectedLabelColor: Colors.black38,
+            //修改标签选中的下划线颜色
+            indicatorColor: Colors.black54,
+            //修改标签选中的下划线长度
+            indicatorSize: TabBarIndicatorSize.label,
+            //修改标签选中的下划线粗细
+            indicatorWeight: 1.0,
+            tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.local_florist),
+              ),
+              Tab(
+                icon: Icon(Icons.change_history),
+              ),
+              Tab(
+                icon: Icon(Icons.directions_bike),
+              ),
+            ],
+          ),
         ),
         //用TabBarView部件添加tab 对应的视图view显示
         body: TabBarView(
           children: <Widget>[
-            Icon(Icons.local_florist,size: 128.0,color: Colors.black12,),
-            Icon(Icons.change_history,size: 128.0,color: Colors.black12,),
-            Icon(Icons.directions_bike,size: 128.0,color: Colors.black12,),
+            Icon(
+              Icons.local_florist,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.change_history,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.directions_bike,
+              size: 128.0,
+              color: Colors.black12,
+            ),
           ],
         ),
       ),

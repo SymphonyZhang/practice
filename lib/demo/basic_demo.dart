@@ -6,10 +6,39 @@ class BasicDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return TextDemo();
+    return RichTextDemo();
   }
 }
 
+//行内多样式文字
+class RichTextDemo extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return RichText(
+      text: TextSpan(
+        text: 'Practice',
+        style: TextStyle(
+          color: Colors.deepPurpleAccent,
+          fontSize: 34.0,
+          fontStyle: FontStyle.italic,
+          fontWeight: FontWeight.w100,
+        ),
+        children: [
+          TextSpan(
+            text: '.net',
+            style: TextStyle(
+              fontSize: 17.0,
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//文字与文字样式
 class TextDemo extends StatelessWidget{
 
   //自定义文字样式

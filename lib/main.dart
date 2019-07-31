@@ -42,6 +42,7 @@ class Home extends StatelessWidget {
         title: Text('Practice'),
         //添加标题栏右边的actions button
         actions: <Widget>[
+          //在actions中可以添加多个IconButton
           //图标按钮部件
           IconButton(
             //图标

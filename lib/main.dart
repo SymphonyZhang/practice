@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
         //设置阴影大小，默认4.0
         elevation: 0.0,
       ),
-      body: ListViewDemo(),
+      body: null,
     );
   }
 }

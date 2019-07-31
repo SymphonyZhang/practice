@@ -40,6 +40,18 @@ class Home extends StatelessWidget {
           onPressed: () => debugPrint('This is Navigation bar menu'),
         ),
         title: Text('Practice'),
+        //添加标题栏右边的actions button
+        actions: <Widget>[
+          //图标按钮部件
+          IconButton(
+            //图标
+            icon: Icon(Icons.search),
+            //描述
+            tooltip: 'Search',
+            //点击事件
+            onPressed: () => debugPrint('Search button had pressed'),
+          ),
+        ],
         //设置阴影大小，默认4.0
         elevation: 0.0,
       ),

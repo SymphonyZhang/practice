@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './model/post.dart';
+import './demo/listview_demo.dart';
 
 void main() => runApp(App());
 
@@ -10,6 +10,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      //去除右上角debug条幅
+      debugShowCheckedModeBanner: false,
       home: Home(),
       //设置主题
       theme: ThemeData(
@@ -21,54 +23,19 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBuilder(BuildContext context, int index) {
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.network(
-            posts[index].imageUrl,
-          ),
-          //设置一个SizedBox 用于间隔
-          SizedBox(
-            height: 16.0,
-          ),
-          Text(
-            posts[index].title,
-            //设置文字样式
-            style: Theme.of(context).textTheme.title,
-          ),
-          Text(
-            posts[index].author,
-            //设置文字样式
-            style: Theme.of(context).textTheme.subhead,
-          ),
-          //设置一个SizedBox 用于间隔
-          SizedBox(
-            height: 16.0,
-          ),
-        ],
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.grey[100],
+      //app标题栏
       appBar: AppBar(
         title: Text('Practice'),
         //设置阴影大小，默认4.0
         elevation: 0.0,
       ),
-      body: ListView.builder(
-        //获取长度
-        itemCount: posts.length,
-        //用_listItemBuilder方法建立list
-        itemBuilder: _listItemBuilder,
-      ),
+      body: ListViewDemo(),
     );
   }
 }

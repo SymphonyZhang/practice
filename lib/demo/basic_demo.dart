@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class BasicDemo extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -13,13 +11,45 @@ class BasicDemo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            child: Icon(Icons.pool,color: Colors.white,),
+            child: Icon(
+              Icons.pool,
+              color: Colors.white,
+            ),
             padding: EdgeInsets.all(16.0),
             margin: EdgeInsets.all(8.0),
             width: 90.0,
             height: 90.0,
+            //详细设置容器样式，如果有decoration则，在decoration上一层不能出现color，会冲突
             decoration: BoxDecoration(
               color: Color.fromRGBO(3, 54, 255, 1.0),
+              //添加描边
+              border: Border.all(
+                //设置全部描边
+                //描边的颜色
+                color: Colors.indigoAccent[100],
+                //描边的粗细
+                width: 3.0,
+                //描边的样式，实心的
+                style: BorderStyle.solid,
+              ),/*Border(
+                //可以分开设置
+                top: BorderSide(
+                  //描边的颜色
+                  color: Colors.indigoAccent[100],
+                  //描边的粗细
+                  width: 3.0,
+                  //描边的样式，实心的
+                  style: BorderStyle.solid,
+                ),
+                bottom: BorderSide(
+                  //描边的颜色
+                  color: Colors.indigoAccent[100],
+                  //描边的粗细
+                  width: 3.0,
+                  //描边的样式，实心的
+                  style: BorderStyle.solid,
+                ),
+              ),*/
             ),
           ),
         ],
@@ -29,7 +59,7 @@ class BasicDemo extends StatelessWidget {
 }
 
 //行内多样式文字
-class RichTextDemo extends StatelessWidget{
+class RichTextDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -57,8 +87,7 @@ class RichTextDemo extends StatelessWidget{
 }
 
 //文字与文字样式
-class TextDemo extends StatelessWidget{
-
+class TextDemo extends StatelessWidget {
   //自定义文字样式
   final TextStyle _textStyle = TextStyle(
     fontSize: 16.0,

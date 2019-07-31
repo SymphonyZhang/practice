@@ -22,7 +22,7 @@ class BasicDemo extends StatelessWidget {
             //详细设置容器样式，如果有decoration则，在decoration上一层不能出现color，会冲突
             decoration: BoxDecoration(
               color: Color.fromRGBO(3, 54, 255, 1.0),
-              //添加描边
+              //添加统一描边
               border: Border.all(
                 //设置全部描边
                 //描边的颜色
@@ -31,8 +31,10 @@ class BasicDemo extends StatelessWidget {
                 width: 3.0,
                 //描边的样式，实心的
                 style: BorderStyle.solid,
-              ),/*Border(
-                //可以分开设置
+              ),
+
+              //可以分开设置描边
+              /*border: Border(
                 top: BorderSide(
                   //描边的颜色
                   color: Colors.indigoAccent[100],
@@ -50,6 +52,7 @@ class BasicDemo extends StatelessWidget {
                   style: BorderStyle.solid,
                 ),
               ),*/
+
               //设置圆角全局
               borderRadius: BorderRadius.circular(16.0),
               //分别设置圆角

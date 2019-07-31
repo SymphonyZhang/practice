@@ -107,6 +107,22 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+        //添加Drawer(抽屉)
+        //左边显示用drawer，右边显示用用endDrawer
+        drawer: Container(
+          //设置背景色
+          color: Colors.white,
+          //设置内边距
+          padding: EdgeInsets.all(8.0),
+          //设置子控件，以竖向排列显示
+          child: Column(
+            //设置主轴对齐
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('This is Drawer'),
+            ],
+          ),
+        ),
       ),
     );
   }

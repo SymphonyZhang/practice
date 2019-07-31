@@ -32,8 +32,11 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         //添加标题栏左边的menu button
         leading: IconButton(
+          //图标
           icon: Icon(Icons.menu),
+          //描述
           tooltip: 'Navigation',
+          //点击事件
           onPressed: () => debugPrint('This is Navigation bar menu'),
         ),
         title: Text('Practice'),

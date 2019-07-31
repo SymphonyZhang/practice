@@ -39,15 +39,15 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.grey[100],
         //app标题栏
         appBar: AppBar(
-          //添加标题栏左边的menu button
-          leading: IconButton(
+          //添加标题栏左边的menu button ，跟Drawer自动生成的图标有冲突，如果需要Drawer则把这块注释掉
+         /* leading: IconButton(
             //图标
             icon: Icon(Icons.menu),
             //描述
             tooltip: 'Navigation',
             //点击事件
             onPressed: () => debugPrint('This is Navigation bar menu'),
-          ),
+          ),*/
           title: Text('Practice'),
           //添加标题栏右边的actions button
           actions: <Widget>[

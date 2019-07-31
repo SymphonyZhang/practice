@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
         //app标题栏
         appBar: AppBar(
           //添加标题栏左边的menu button ，跟Drawer自动生成的图标有冲突，如果需要Drawer则把这块注释掉
-         /* leading: IconButton(
+          /* leading: IconButton(
             //图标
             icon: Icon(Icons.menu),
             //描述
@@ -114,11 +114,20 @@ class Home extends StatelessWidget {
             //内边距为0
             padding: EdgeInsets.zero,
             children: <Widget>[
-              //添加头部
-              DrawerHeader(
-                child: Text('header'.toUpperCase()),
-                decoration: BoxDecoration(
-                  color: Colors.grey[100],
+              //显示用户相关的头部
+              UserAccountsDrawerHeader(
+                //用户名
+                accountName: Text(
+                  'Symphony',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                //密码
+                accountEmail: Text(
+                  'symphony@practice.net',
+                ),
+                //头像，用圆形蒙版
+                currentAccountPicture:CircleAvatar(
+                  backgroundImage: NetworkImage("http://cdn.duitang.com/uploads/item/201407/24/20140724190906_MCkXs.thumb.700_0.jpeg"),
                 ),
               ),
               //添加选项

@@ -135,6 +135,9 @@ class Home extends StatelessWidget {
                   color: Colors.black12,
                   size: 22.0,
                 ),
+                //添加点击后行为
+                //点击后Drawer自动回收隐藏
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 //在文字的左边显示图标用leading
@@ -149,6 +152,9 @@ class Home extends StatelessWidget {
                   color: Colors.black12,
                   size: 22.0,
                 ),
+                //添加点击后行为
+                //点击后Drawer自动回收隐藏
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 //在文字的左边显示图标用leading
@@ -163,6 +169,9 @@ class Home extends StatelessWidget {
                   color: Colors.black12,
                   size: 22.0,
                 ),
+                //添加点击后行为
+                //点击后Drawer自动回收隐藏
+                onTap: () => Navigator.pop(context),
               ),
             ],
           ),

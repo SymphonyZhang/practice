@@ -26,6 +26,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    //TabBar 定义标签，TabBarView 定义标签内容，TabController 联通TabBar和TabBarView
     return DefaultTabController(
       //设置tab的个数
       length: 3,

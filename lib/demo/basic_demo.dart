@@ -4,6 +4,14 @@ class BasicDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    return ContainerBoxDecorationDemo();
+  }
+}
+
+class ContainerBoxDecorationDemo extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
     return Container(
       //color: Colors.grey[100],
       //添加背景图像

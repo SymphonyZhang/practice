@@ -110,6 +110,41 @@ class Home extends StatelessWidget {
         //添加Drawer(抽屉)
         //左边显示用drawer，右边显示用用endDrawer
         drawer: DrawerDemo(),
+        //添加底部导航栏
+        //这里选中的颜色跟app主题颜色一致 (primarySwatch: Colors.yellow)
+        //如果底部导航栏中item个数大于3个，导航栏类型会发生变化导致显示异常.需要用type重新设置导航栏类型，解决异常显示
+        bottomNavigationBar: BottomNavigationBar(
+            //设置导航栏类型
+            type: BottomNavigationBarType.fixed,
+            //设置选中(激活)状态的颜色
+            fixedColor: Colors.black,
+            items: [
+              //添加底部导航栏的item
+              BottomNavigationBarItem(
+                //添加小图标
+                icon: Icon(Icons.explore),
+                //添加标题
+                title: Text('Explore'),
+              ),
+              BottomNavigationBarItem(
+                //添加小图标
+                icon: Icon(Icons.history),
+                //添加标题
+                title: Text('history'),
+              ),
+              BottomNavigationBarItem(
+                //添加小图标
+                icon: Icon(Icons.list),
+                //添加标题
+                title: Text('List'),
+              ),
+              BottomNavigationBarItem(
+                //添加小图标
+                icon: Icon(Icons.person),
+                //添加标题
+                title: Text('My'),
+              ),
+            ]),
       ),
     );
   }

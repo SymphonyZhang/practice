@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.menu),
           tooltip: 'Navigation',
-          onPressed: null,
+          onPressed: () => debugPrint('This is Navigation bar menu'),
         ),
         title: Text('Practice'),
         //设置阴影大小，默认4.0

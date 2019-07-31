@@ -5,7 +5,24 @@ class BasicDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: Colors.grey[100],
+      //color: Colors.grey[100],
+      //添加背景图像
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          //图像资源
+          image: NetworkImage(
+            'http://b-ssl.duitang.com/uploads/item/201708/07/20170807003521_2tEPY.jpeg',
+          ),
+          //图像位置
+          alignment:Alignment.topCenter,
+          //设置重复模式
+          //repeat: ImageRepeat.repeat,
+          //图像填充模式 cover:图像保持比例覆盖整个容器显示
+          fit: BoxFit.cover,
+          //设置颜色滤镜 color:滤镜颜色，blendmode滤镜混合模式
+          colorFilter: ColorFilter.mode(Colors.indigoAccent[400], BlendMode.hardLight),
+        ),
+      ),
       child: Row(
         //主轴居中对齐
         mainAxisAlignment: MainAxisAlignment.center,

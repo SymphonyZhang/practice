@@ -50,6 +50,14 @@ class BasicDemo extends StatelessWidget {
                   style: BorderStyle.solid,
                 ),
               ),*/
+              //设置圆角全局
+              borderRadius: BorderRadius.circular(16.0),
+              //分别设置圆角
+              /*borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(64.0),
+                bottomLeft: Radius.circular(64.0),
+              ),*/
+
             ),
           ),
         ],

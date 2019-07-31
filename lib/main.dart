@@ -126,9 +126,21 @@ class Home extends StatelessWidget {
                   'symphony@practice.net',
                 ),
                 //头像，用圆形蒙版
-                currentAccountPicture:CircleAvatar(
-                  backgroundImage: NetworkImage("http://cdn.duitang.com/uploads/item/201407/24/20140724190906_MCkXs.thumb.700_0.jpeg"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "http://cdn.duitang.com/uploads/item/201407/24/20140724190906_MCkXs.thumb.700_0.jpeg"),
                 ),
+                //给头部添加背景
+                decoration: BoxDecoration(
+                    color: Colors.yellow[400],
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'http://b-ssl.duitang.com/uploads/item/201610/22/20161022115218_Xe4kd.jpeg'),
+                      //填充效果（填满）
+                      fit: BoxFit.cover,
+                      //添加颜色滤镜 .withOpacity(0.6)[颜色的不透明度为0.6]  mode(color，blendmode) color为颜色，blendmode为混合模式
+                      colorFilter: ColorFilter.mode(Colors.yellow[400].withOpacity(0.6), BlendMode.hardLight),
+                    )),
               ),
               //添加选项
               ListTile(

@@ -1,15 +1,56 @@
 import 'package:flutter/material.dart';
+import '../model/post.dart';
 
-class ViewDemo extends StatelessWidget{
+class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return PageViewDemo();
+    return PageViewBuilderDemo();
+  }
+}
+
+class PageViewBuilderDemo extends StatelessWidget {
+  Widget _pageItemBuilder(BuildContext context, int index) {
+    return Stack(
+      children: <Widget>[
+        //SizedBox的尺寸会占满所有可用空间
+        SizedBox.expand(
+          child: Image.network(
+            posts[index].imageUrl,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Positioned(
+          bottom: 8.0,
+          left: 8.0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                posts[index].title,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(posts[index].author),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return PageView.builder(
+      //页面数量
+      itemCount: posts.length,
+      itemBuilder: _pageItemBuilder,
+    );
   }
 }
 
 //PageView 页面视图
-class PageViewDemo extends StatelessWidget{
+class PageViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageView(
@@ -33,17 +74,26 @@ class PageViewDemo extends StatelessWidget{
         Container(
           alignment: Alignment.center,
           color: Colors.brown[900],
-          child: Text('One',style: TextStyle(fontSize: 32.0,color: Colors.white),),
+          child: Text(
+            'One',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
         ),
         Container(
           alignment: Alignment.center,
           color: Colors.grey[900],
-          child: Text('Two',style: TextStyle(fontSize: 32.0,color: Colors.white),),
+          child: Text(
+            'Two',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
         ),
         Container(
           alignment: Alignment.center,
           color: Colors.blueGrey[900],
-          child: Text('Three',style: TextStyle(fontSize: 32.0,color: Colors.white),),
+          child: Text(
+            'Three',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
         ),
       ],
     );

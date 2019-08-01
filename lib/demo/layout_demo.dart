@@ -8,8 +8,24 @@ class LayoutDemo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          StackDemo(),
+          AspectRatioDemo(),
       ],
+      ),
+    );
+  }
+}
+
+//设置部件的宽高比
+class AspectRatioDemo extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return AspectRatio(
+      //设置小部件宽高比 (例如3:2   aspectRatio: 3.0/2.0)
+      aspectRatio: 3.0/2.0,
+      child: Container(
+        color: Color.fromRGBO(3, 54, 255, 1.0),
+
       ),
     );
   }

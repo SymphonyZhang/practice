@@ -8,8 +8,28 @@ class LayoutDemo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          AspectRatioDemo(),
+          ConstrainedBoxDemo(),
       ],
+      ),
+    );
+  }
+}
+
+//ConstainedBox 可以给子部件添加限制，例如最小最大的宽度和高度
+class ConstrainedBoxDemo extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return ConstrainedBox(
+      //限制
+      constraints: BoxConstraints(
+        //子部件最小高度为200.0
+        minHeight: 200.0,
+        //子部件最大宽度为200.0
+        maxWidth: 200.0,
+      ),
+      child: Container(
+        color: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }

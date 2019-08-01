@@ -8,25 +8,7 @@ class LayoutDemo extends StatelessWidget {
       //横排
       //主轴：在Row中主轴是横向的，
       //交叉轴：crossAxis 在Row中 主轴是纵向的
-      child: Row(
-        //设置部件在主轴上的对齐方式
-        //MainAxisAlignment.spaceAround:剩余空间分布在小部件周围
-        //MainAxisAlignment.spaceBetween:剩余空间平均分布在小部件之间
-        //MainAxisAlignment.spaceEvenly:剩余空间平均分布在小部件之间包括前后两个小部件之外也有空间
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //设置部件在交叉轴上的对齐方式
-        //CrossAxisAlignment.stretch:拉伸小部件
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          IconBadge(Icons.pool),
-          IconBadge(Icons.beach_access,size: 64.0,),
-          IconBadge(Icons.airplanemode_active),
-        ],
-      ),
-      //竖排
-      //主轴： 在Column 中，主轴是纵向的
-      //交叉轴：crossAxis 在Column中 主轴是横向的
-      /*child: Column(
+      /*child: Row(
         //设置部件在主轴上的对齐方式
         //MainAxisAlignment.spaceAround:剩余空间分布在小部件周围
         //MainAxisAlignment.spaceBetween:剩余空间平均分布在小部件之间
@@ -41,6 +23,24 @@ class LayoutDemo extends StatelessWidget {
           IconBadge(Icons.airplanemode_active),
         ],
       ),*/
+      //竖排
+      //主轴： 在Column 中，主轴是纵向的
+      //交叉轴：crossAxis 在Column中 主轴是横向的
+      child: Column(
+        //设置部件在主轴上的对齐方式
+        //MainAxisAlignment.spaceAround:剩余空间分布在小部件周围
+        //MainAxisAlignment.spaceBetween:剩余空间平均分布在小部件之间
+        //MainAxisAlignment.spaceEvenly:剩余空间平均分布在小部件之间包括前后两个小部件之外也有空间
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //设置部件在交叉轴上的对齐方式
+        //CrossAxisAlignment.stretch:拉伸小部件
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          IconBadge(Icons.pool),
+          IconBadge(Icons.beach_access,size: 64.0,),
+          IconBadge(Icons.airplanemode_active),
+        ],
+      ),
     );
   }
 }

@@ -13,6 +13,14 @@ class PageViewDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return PageView(
+      //拖动超过50%则下一页，少于50%则保持原来页面,true开启，false关闭
+      //pageSnapping: false,
+      //子部件顺序倒置，true开启，false关闭
+      //reverse: true,
+      //滚动方向 Axis.vertical垂直滚动 Axis.horizontal水平滚动(默认)
+      //scrollDirection: Axis.vertical,
+      //页面的可视页面在中间时会触发回调
+      onPageChanged: (currentPage) => debugPrint('Page $currentPage'),
       children: <Widget>[
         Container(
           alignment: Alignment.center,

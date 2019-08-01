@@ -5,16 +5,55 @@ class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return GridViewExtentDemo();
+    return GridViewBuilderDemo();
+  }
+}
+
+//网格视图 builder方法按需生成视图
+class GridViewBuilderDemo extends StatelessWidget {
+  Widget _gridItemBuilder(BuildContext context, int index) {
+    return Container(
+      child: Image.network(
+        posts[index].imageUrl,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.builder(
+      padding: EdgeInsets.all(8.0),
+      itemCount: posts.length,
+      //SliverGridDelegateWithFixedCrossAxisCount基本相当于GridView count
+      /*gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //设置在交叉轴上显示的item个数
+        crossAxisCount: 3,
+        //设置item在交叉轴上的间距
+        crossAxisSpacing: 8.0,
+        //设置item在主轴上的间距
+        mainAxisSpacing: 8.0,
+      ),*/
+      //SliverGridDelegateWithMaxCrossAxisExtent 基本相当于 GridView extent
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        //网格视图在交叉轴上item的最大尺寸
+        maxCrossAxisExtent: 150,
+        //设置item在交叉轴上的间距
+        crossAxisSpacing: 8.0,
+        //设置item在主轴上的间距
+        mainAxisSpacing: 8.0,
+      ),
+      itemBuilder: _gridItemBuilder,
+    );
   }
 }
 
 //网格视图 extent 方法
 //GridView默认垂直滚动
 class GridViewExtentDemo extends StatelessWidget {
-
-  List<Widget> _buildTiles(int length){
-    return List.generate(length, (int index){
+  List<Widget> _buildTiles(int length) {
+    return List.generate(length, (int index) {
       return Container(
         color: Colors.grey[300],
         alignment: Alignment.center,
@@ -50,9 +89,8 @@ class GridViewExtentDemo extends StatelessWidget {
 //网格视图 count 方法 count指的是在交叉上显示的item数量
 //GridView默认垂直滚动
 class GridViewCountDemo extends StatelessWidget {
-
-  List<Widget> _buildTiles(int length){
-    return List.generate(length, (int index){
+  List<Widget> _buildTiles(int length) {
+    return List.generate(length, (int index) {
       return Container(
         color: Colors.grey[300],
         alignment: Alignment.center,

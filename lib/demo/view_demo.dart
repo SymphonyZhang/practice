@@ -9,7 +9,7 @@ class ViewDemo extends StatelessWidget {
   }
 }
 
-//网格视图 extent 方法 count指的是在交叉上显示的item数量
+//网格视图 extent 方法
 //GridView默认垂直滚动
 class GridViewExtentDemo extends StatelessWidget {
 

@@ -21,6 +21,14 @@ class PageViewDemo extends StatelessWidget{
       //scrollDirection: Axis.vertical,
       //页面的可视页面在中间时会触发回调
       onPageChanged: (currentPage) => debugPrint('Page $currentPage'),
+      controller: PageController(
+        //初始显示页面的下标
+        initialPage: 1,
+        //默认pageview会记录下用户滚动到哪个页面  如果要取消则设置为false
+        keepPage: false,
+        //页面占用可视窗的比例，默认1.0,占用比例是根据滚动方向决定的
+        viewportFraction: 0.85,
+      ),
       children: <Widget>[
         Container(
           alignment: Alignment.center,

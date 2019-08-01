@@ -4,6 +4,7 @@ import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 void main() => runApp(App());
 
@@ -39,7 +40,7 @@ class Home extends StatelessWidget {
     //TabBar 定义标签，TabBarView 定义标签内容，TabController 联通TabBar和TabBarView
     return DefaultTabController(
       //设置tab的个数
-      length: 3,
+      length: 4,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         //app标题栏
@@ -89,6 +90,9 @@ class Home extends StatelessWidget {
               Tab(
                 icon: Icon(Icons.directions_bike),
               ),
+              Tab(
+                icon: Icon(Icons.view_quilt),
+              ),
             ],
           ),
         ),
@@ -98,6 +102,7 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             BasicDemo(),
             LayoutDemo(),
+            ViewDemo(),
           ],
         ),
         //添加Drawer(抽屉)

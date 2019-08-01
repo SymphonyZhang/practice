@@ -5,7 +5,45 @@ class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return GridViewCountDemo();
+    return GridViewExtentDemo();
+  }
+}
+
+//网格视图 extent 方法 count指的是在交叉上显示的item数量
+//GridView默认垂直滚动
+class GridViewExtentDemo extends StatelessWidget {
+
+  List<Widget> _buildTiles(int length){
+    return List.generate(length, (int index){
+      return Container(
+        color: Colors.grey[300],
+        alignment: Alignment.center,
+        child: Text(
+          'Item $index',
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Colors.grey,
+          ),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.extent(
+      //网格视图在交叉轴上item的最大尺寸
+      maxCrossAxisExtent: 150.0,
+      //item在交叉轴上的间距
+      crossAxisSpacing: 16.0,
+      //item在主轴上的间距
+      mainAxisSpacing: 16.0,
+      //修改GridView 滚动方向(会改变主轴方向)
+      //scrollDirection: Axis.horizontal,
+      //网格视图中的items
+      children: _buildTiles(100),
+    );
   }
 }
 

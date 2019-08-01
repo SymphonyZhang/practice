@@ -5,6 +5,7 @@ import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
+import './demo/sliver_demo.dart';
 
 void main() => runApp(App());
 
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       //去除右上角debug条幅
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: SliverDemo(),
       //设置主题
       theme: ThemeData(
         //主要颜色

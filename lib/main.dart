@@ -39,6 +39,7 @@ class App extends StatelessWidget {
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         //设置水波纹颜色
         splashColor: Colors.white70,
+        accentColor: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }

@@ -9,6 +9,14 @@ class SliverDemo extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
+          //Sliver工具栏
+          SliverAppBar(
+            title: Text('Practice'),
+            //是否固定工具栏
+            //pinned: true,
+            //下拉时是否立马显示工具栏
+            floating: true,
+          ),
           //内容显示在安全区域
           SliverSafeArea(
             //添加内边距

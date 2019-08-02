@@ -14,7 +14,7 @@ class SliverDemo extends StatelessWidget {
             //添加内边距
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
-              sliver: SliverGridDemo(),
+              sliver: SliverListDemo(),
             ),
           ),
         ],
@@ -23,14 +23,72 @@ class SliverDemo extends StatelessWidget {
   }
 }
 
-class SliverGridDemo extends StatelessWidget{
+class SliverListDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //Sliver 构建GridView
+    return SliverList(
+      //实现GridView里的item
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 32.0),
+            child: Material(
+              borderRadius: BorderRadius.circular(12.0),
+              elevation: 14.0,
+              shadowColor: Colors.grey.withOpacity(0.5),
+              child: Stack(
+                children: <Widget>[
+                  AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.network(
+                      posts[index].imageUrl,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Positioned(
+                    top: 32.0,
+                    left: 32.0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          posts[index].title,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          posts[index].author,
+                          style: TextStyle(
+                            fontSize:13.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+        //设置items的个数
+        childCount: posts.length,
+      ),
+    );
+  }
+}
+
+class SliverGridDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Sliver 构建GridView
     return SliverGrid(
       //实现GridView里的item
       delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
+        (BuildContext context, int index) {
           return Container(
             child: Image.network(
               posts[index].imageUrl,

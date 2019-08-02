@@ -20,6 +20,11 @@ class App extends StatelessWidget {
       //去除右上角debug条幅
       debugShowCheckedModeBanner: false,
       home: NavigatorDemo(),
+      //预先设置带名字的路由(页面)，在适当时可以通过路由名字操作页面显示和移除  例如Navigator_demo中About按钮
+      //map类型 (名字:值[要打开的视图])
+      routes: {
+        '/about':(context) => Page(title: 'About',),
+      },
       //设置主题
       theme: ThemeData(
         //主要颜色

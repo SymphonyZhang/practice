@@ -6,28 +6,51 @@ class ListViewDemo extends StatelessWidget{
     return Container(
       color: Colors.white,
       margin: EdgeInsets.all(8.0),
-      child: Column(
+      child: Stack(
         children: <Widget>[
-          Image.network(
-            posts[index].imageUrl,
+          Column(
+            children: <Widget>[
+              AspectRatio(
+                  aspectRatio: 16/9,
+                child: Image.network(
+                  posts[index].imageUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              //设置一个SizedBox 用于间隔
+              SizedBox(
+                height: 16.0,
+              ),
+              Text(
+                posts[index].title,
+                //设置文字样式
+                style: Theme.of(context).textTheme.title,
+              ),
+              Text(
+                posts[index].author,
+                //设置文字样式
+                style: Theme.of(context).textTheme.subhead,
+              ),
+              //设置一个SizedBox 用于间隔
+              SizedBox(
+                height: 16.0,
+              ),
+            ],
           ),
-          //设置一个SizedBox 用于间隔
-          SizedBox(
-            height: 16.0,
-          ),
-          Text(
-            posts[index].title,
-            //设置文字样式
-            style: Theme.of(context).textTheme.title,
-          ),
-          Text(
-            posts[index].author,
-            //设置文字样式
-            style: Theme.of(context).textTheme.subhead,
-          ),
-          //设置一个SizedBox 用于间隔
-          SizedBox(
-            height: 16.0,
+          Positioned.fill(
+              child: Material(
+                color: Colors.transparent,
+                //溅墨效果
+                child: InkWell(
+                  //扩散颜色
+                  splashColor: Colors.white.withOpacity(0.3),
+                  //点击颜色
+                  highlightColor: Colors.white.withOpacity(0.1),
+                  onTap: (){
+                    debugPrint('Tap');
+                  },
+                ),
+              ),
           ),
         ],
       ),

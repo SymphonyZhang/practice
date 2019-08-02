@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../model/post.dart';
+import 'post_show.dart';
 
-class ListViewDemo extends StatelessWidget{
+class ListViewDemo extends StatelessWidget {
   Widget _listItemBuilder(BuildContext context, int index) {
     return Container(
       color: Colors.white,
@@ -11,7 +12,7 @@ class ListViewDemo extends StatelessWidget{
           Column(
             children: <Widget>[
               AspectRatio(
-                  aspectRatio: 16/9,
+                aspectRatio: 16 / 9,
                 child: Image.network(
                   posts[index].imageUrl,
                   fit: BoxFit.cover,
@@ -38,24 +39,31 @@ class ListViewDemo extends StatelessWidget{
             ],
           ),
           Positioned.fill(
-              child: Material(
-                color: Colors.transparent,
-                //溅墨效果
-                child: InkWell(
-                  //扩散颜色
-                  splashColor: Colors.white.withOpacity(0.3),
-                  //点击颜色
-                  highlightColor: Colors.white.withOpacity(0.1),
-                  onTap: (){
-                    debugPrint('Tap');
-                  },
-                ),
+            child: Material(
+              color: Colors.transparent,
+              //溅墨效果
+              child: InkWell(
+                //扩散颜色
+                splashColor: Colors.white.withOpacity(0.3),
+                //点击颜色
+                highlightColor: Colors.white.withOpacity(0.1),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => PostShow(
+                        post: posts[index],
+                      ),
+                    ),
+                  );
+                },
               ),
+            ),
           ),
         ],
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

@@ -11,11 +11,29 @@ class SliverDemo extends StatelessWidget {
         slivers: <Widget>[
           //Sliver工具栏
           SliverAppBar(
-            title: Text('Practice'),
+            //title: Text('Practice'),
             //是否固定工具栏
             //pinned: true,
             //下拉时是否立马显示工具栏
             floating: true,
+            //工具栏伸展高度
+            expandedHeight: 178.0,
+            //设置伸展高度为弹性空间
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'Practice'.toUpperCase(),
+                style: TextStyle(
+                  fontSize: 15.0,
+                  //字间距
+                  letterSpacing: 3.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              background: Image.network(
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564726910634&di=addc6ac5708a43f1bbbc241a15c88ee3&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F23%2F20150423H5920_HZSMk.jpeg',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           //内容显示在安全区域
           SliverSafeArea(
@@ -70,7 +88,7 @@ class SliverListDemo extends StatelessWidget {
                         Text(
                           posts[index].author,
                           style: TextStyle(
-                            fontSize:13.0,
+                            fontSize: 13.0,
                             color: Colors.white,
                           ),
                         ),

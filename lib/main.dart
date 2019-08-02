@@ -18,7 +18,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       //去除右上角debug条幅
       debugShowCheckedModeBanner: false,
-      home: SliverDemo(),
+      home: Home(),
       //设置主题
       theme: ThemeData(
         //主要颜色
@@ -103,7 +103,7 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             BasicDemo(),
             LayoutDemo(),
-            ViewDemo(),
+            SliverDemo(),
           ],
         ),
         //添加Drawer(抽屉)

@@ -34,6 +34,14 @@ class TextFieldDemoState extends State<TextFieldDemo> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      //监视文本变化
+      onChanged: (value) {
+        debugPrint('input: $value');
+      },
+      //监视键盘上submit按钮
+      onSubmitted: (value){
+        debugPrint('submit: $value');
+      },
       decoration: InputDecoration(
         icon:Icon(Icons.subject),
         labelText: 'Title',

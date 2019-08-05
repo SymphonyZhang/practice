@@ -35,8 +35,28 @@ class RegisterFormState extends State<RegisterForm> {
 
   //保存表单数据
   void submitRegisterForm (){
+    //调用表单保存
     registerFormKey.currentState.save();
+    //调用表单校验
+    registerFormKey.currentState.validate();
     debugPrint('username:  $username , password: $password');
+  }
+
+  //表单字段校验
+  String validateUsername(value){
+    if(value.isEmpty){
+      return 'Username is required.';
+    }
+
+    return null;
+  }
+
+  //表单字段校验
+  String validatePassword(value){
+    if(value.isEmpty){
+      return 'Password is required.';
+    }
+    return null;
   }
 
   @override
@@ -48,22 +68,26 @@ class RegisterFormState extends State<RegisterForm> {
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Username',
+              helperText: '',
             ),
             //获取表单值
             onSaved: (value){
               username = value;
             },
+            validator: validateUsername,
           ),
           TextFormField(
             //密文显示小圆点
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'Password',
+              helperText: '',
             ),
             //获取表单值
             onSaved: (value){
               password = value;
             },
+            validator: validatePassword,
           ),
           SizedBox(
             height: 32.0,

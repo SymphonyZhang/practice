@@ -29,15 +29,30 @@ class RegisterForm extends StatefulWidget {
 }
 
 class RegisterFormState extends State<RegisterForm> {
+
+  final registerFormKey = GlobalKey<FormState>();
+  String username,password;
+
+  //保存表单数据
+  void submitRegisterForm (){
+    registerFormKey.currentState.save();
+    debugPrint('username:  $username , password: $password');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: registerFormKey,
       child: Column(
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Username',
             ),
+            //获取表单值
+            onSaved: (value){
+              username = value;
+            },
           ),
           TextFormField(
             //密文显示小圆点
@@ -45,6 +60,10 @@ class RegisterFormState extends State<RegisterForm> {
             decoration: InputDecoration(
               labelText: 'Password',
             ),
+            //获取表单值
+            onSaved: (value){
+              password = value;
+            },
           ),
           SizedBox(
             height: 32.0,
@@ -60,7 +79,7 @@ class RegisterFormState extends State<RegisterForm> {
                 ),
               ),
               elevation: 0.0,
-              onPressed: (){},
+              onPressed: submitRegisterForm,
             ),
           ),
         ],

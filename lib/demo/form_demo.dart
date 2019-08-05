@@ -23,6 +23,8 @@ class FormDemo extends StatelessWidget {
   }
 }
 
+
+//输入文本框
 class TextFieldDemo extends StatefulWidget {
   @override
   TextFieldDemoState createState() => TextFieldDemoState();
@@ -32,7 +34,18 @@ class TextFieldDemoState extends State<TextFieldDemo> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-
+      decoration: InputDecoration(
+        icon:Icon(Icons.subject),
+        labelText: 'Title',
+        hintText:'Enter the post title.',
+        //默认状态下，去除输入框下边
+        //border: InputBorder.none,
+        //在四周添加统一的边框
+        //border: OutlineInputBorder(),
+        //带背景颜色风格
+        /*filled: true,
+        fillColor: Colors.pink[200],*/
+      ),
     );
   }
 }

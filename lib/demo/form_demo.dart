@@ -41,6 +41,9 @@ class RegisterFormState extends State<RegisterForm> {
       //调用表单保存
       registerFormKey.currentState.save();
       debugPrint('username:  $username , password: $password');
+      Scaffold.of(context).showSnackBar(
+        SnackBar(content: Text('Registering...')),
+      );
     }else{
       setState(() {
         autovalidate = true;

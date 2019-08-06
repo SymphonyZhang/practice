@@ -32,14 +32,21 @@ class RegisterFormState extends State<RegisterForm> {
 
   final registerFormKey = GlobalKey<FormState>();
   String username,password;
+  bool autovalidate = false;
 
   //保存表单数据
   void submitRegisterForm (){
-    //调用表单保存
-    registerFormKey.currentState.save();
     //调用表单校验
-    registerFormKey.currentState.validate();
-    debugPrint('username:  $username , password: $password');
+    if(registerFormKey.currentState.validate()){
+      //调用表单保存
+      registerFormKey.currentState.save();
+      debugPrint('username:  $username , password: $password');
+    }else{
+      setState(() {
+        autovalidate = true;
+      });
+    }
+
   }
 
   //表单字段校验
@@ -75,6 +82,8 @@ class RegisterFormState extends State<RegisterForm> {
               username = value;
             },
             validator: validateUsername,
+            //自动验证表单
+            autovalidate: autovalidate,
           ),
           TextFormField(
             //密文显示小圆点
@@ -88,6 +97,8 @@ class RegisterFormState extends State<RegisterForm> {
               password = value;
             },
             validator: validatePassword,
+            //自动验证表单
+            autovalidate: autovalidate,
           ),
           SizedBox(
             height: 32.0,

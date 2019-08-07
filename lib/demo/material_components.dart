@@ -26,13 +26,15 @@ class FloatingActionButtonDemo extends StatelessWidget {
     child: Icon(Icons.add),
     elevation: 0.0,
     backgroundColor: Colors.black87,
-    shape: BeveledRectangleBorder(
+    //方形
+    /*shape: BeveledRectangleBorder(
+      //30.0会变成菱形
       borderRadius: BorderRadius.circular(30.0),
-    ),
+    ),*/
   );
 
   final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
-    onPressed: (){},
+    onPressed: () {},
     icon: Icon(Icons.add),
     label: Text('Add'),
     elevation: 0.0,
@@ -45,7 +47,15 @@ class FloatingActionButtonDemo extends StatelessWidget {
         title: Text('FloatingActionButtonDemo'),
         elevation: 0.0,
       ),
-      floatingActionButton: _floatingActionButtonExtended,
+      floatingActionButton: _floatingActionButton,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 80.0,
+
+        ),
+        shape: CircularNotchedRectangle(),
+      ),
     );
   }
 }

@@ -129,6 +129,25 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget FixedWidthButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 160.0,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed:(){},
+            splashColor: Colors.grey,
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor:Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -142,19 +161,8 @@ class ButtonDemo extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Theme(
-                  data: Theme.of(context).copyWith(
-                    buttonColor: Theme.of(context).accentColor,
-                    buttonTheme: ButtonThemeData(
-                      textTheme: ButtonTextTheme.primary,
-                      /*shape: BeveledRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),*/
-                      shape: StadiumBorder(
-
-                      ),
-                    ),
-                  ),
+                Container(
+                  width: 160.0,
                   child: OutlineButton(
                     child: Text('Button'),
                     onPressed:(){},
@@ -162,21 +170,9 @@ class ButtonDemo extends StatelessWidget {
                     borderSide: BorderSide(
                       color: Colors.black,
                     ),
-                    //color: Theme.of(context).accentColor,
                     textColor:Colors.black,
                     highlightedBorderColor: Colors.grey,
-                    //textTheme: ButtonTextTheme.primary,
                   ),
-                ),
-                SizedBox(
-                  width: 16.0,
-                ),
-                OutlineButton.icon(
-                  label: Text('Button'),
-                  icon: Icon(Icons.add),
-                  onPressed:(){},
-                  splashColor: Colors.grey,
-                  textColor: Theme.of(context).accentColor,
                 ),
               ],
             ),

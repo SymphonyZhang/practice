@@ -27,6 +27,7 @@ class MaterialComponents extends StatelessWidget {
 class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     final Widget FlatButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -46,6 +47,46 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget RaisedButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+              /*shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),*/
+              shape: StadiumBorder(
+
+              ),
+            ),
+          ),
+          child: RaisedButton(
+            child: Text('Button'),
+            onPressed:(){},
+            splashColor: Colors.grey,
+            elevation: 0.0,
+            //color: Theme.of(context).accentColor,
+            //textColor:Colors.white,
+            //textTheme: ButtonTextTheme.primary,
+          ),
+        ),
+        SizedBox(
+          width: 16.0,
+        ),
+        RaisedButton.icon(
+          label: Text('Button'),
+          icon: Icon(Icons.add),
+          onPressed:(){},
+          splashColor: Colors.grey,
+          elevation: 12.0,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -59,12 +100,28 @@ class ButtonDemo extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                RaisedButton(
-                  child: Text('Button'),
-                  onPressed:(){},
-                  splashColor: Colors.grey,
-                  elevation: 0.0,
-                  textColor: Theme.of(context).accentColor,
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    buttonColor: Theme.of(context).accentColor,
+                    buttonTheme: ButtonThemeData(
+                      textTheme: ButtonTextTheme.primary,
+                      /*shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),*/
+                      shape: StadiumBorder(
+
+                      ),
+                    ),
+                  ),
+                  child: RaisedButton(
+                    child: Text('Button'),
+                    onPressed:(){},
+                    splashColor: Colors.grey,
+                    elevation: 0.0,
+                    //color: Theme.of(context).accentColor,
+                    //textColor:Colors.white,
+                    //textTheme: ButtonTextTheme.primary,
+                  ),
                 ),
                 SizedBox(
                   width: 16.0,

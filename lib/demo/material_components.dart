@@ -148,6 +148,41 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget ExpandedButton =Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed:(){},
+            splashColor: Colors.grey,
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor:Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+        SizedBox(
+          width: 16.0,
+        ),
+        Expanded(
+          //比重
+          flex: 2,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed:(){},
+            splashColor: Colors.grey,
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor:Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -161,8 +196,24 @@ class ButtonDemo extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  width: 160.0,
+                Expanded(
+                  child: OutlineButton(
+                    child: Text('Button'),
+                    onPressed:(){},
+                    splashColor: Colors.grey,
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    textColor:Colors.black,
+                    highlightedBorderColor: Colors.grey,
+                  ),
+                ),
+                SizedBox(
+                  width: 16.0,
+                ),
+                Expanded(
+                  //比重
+                  flex: 2,
                   child: OutlineButton(
                     child: Text('Button'),
                     onPressed:(){},

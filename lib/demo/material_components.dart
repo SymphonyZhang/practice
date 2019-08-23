@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/demo/radio_demo.dart';
 import './button_demo.dart';
 import './floating_actin_button.dart';
 import './popup_menu_button_demo.dart';
@@ -15,6 +16,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: 'Radio',
+            page: RadioDemo(),
+          ),
           ListItem(
             title: 'Checkbox',
             page: CheckboxDemo(),

@@ -6,11 +6,18 @@ class RadioDemo extends StatefulWidget {
 }
 
 class RadioDemoState extends State<RadioDemo> {
+  int _radioGroupA = 0;
+  void _handleRadioValueChanged(int value){
+    setState(() {
+      _radioGroupA = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GG'),
+        title: Text('RadioDemo'),
         elevation: 0.0,
       ),
       body: Container(
@@ -21,7 +28,18 @@ class RadioDemoState extends State<RadioDemo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
+                Radio(
+                  value: 0,
+                  groupValue: _radioGroupA,
+                  onChanged: _handleRadioValueChanged,
+                  activeColor: Colors.black,
+                ),
+                Radio(
+                  value: 1,
+                  groupValue: _radioGroupA,
+                  onChanged: _handleRadioValueChanged,
+                  activeColor: Colors.black,
+                ),
               ],
             ),
           ],

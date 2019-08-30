@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice/demo/radio_demo.dart';
+import 'package:practice/demo/slider_demo.dart';
 import 'package:practice/demo/switch_demo.dart';
 import './button_demo.dart';
 import './floating_actin_button.dart';
@@ -17,6 +18,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: 'Slider',
+            page: SliderDemo(),
+          ),
           ListItem(
             title: 'Switch',
             page: SwitchDemo(),

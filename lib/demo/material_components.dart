@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/demo/datetime_demo.dart';
 import 'package:practice/demo/radio_demo.dart';
 import 'package:practice/demo/slider_demo.dart';
 import 'package:practice/demo/switch_demo.dart';
@@ -18,6 +19,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: 'DateTime',
+            page: DateTimeDemo(),
+          ),
           ListItem(
             title: 'Slider',
             page: SliderDemo(),

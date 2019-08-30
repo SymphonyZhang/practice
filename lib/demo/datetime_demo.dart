@@ -7,6 +7,7 @@ class DateTimeDemo extends StatefulWidget {
 }
 
 class DateTimeDemoState extends State<DateTimeDemo> {
+  final DateTime selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,15 @@ class DateTimeDemoState extends State<DateTimeDemo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
+                InkWell(
+                  onTap: (){},
+                  child: Row(
+                    children: <Widget>[
+                      Text(DateFormat.yMMMMd().format(selectedDate)),
+                      Icon(Icons.arrow_drop_down),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],

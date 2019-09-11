@@ -7,6 +7,20 @@ class SimpleDialogDemo extends StatefulWidget {
 
 class SimpleDialogDemoState extends State<SimpleDialogDemo> {
 
+  _openSimpleDialog() {
+    showDialog(
+        context: context,
+        builder:(BuildContext context){
+          return SimpleDialog(
+            title: Text('SimpleDialog'),
+            children: <Widget>[
+
+            ],
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +33,10 @@ class SimpleDialogDemoState extends State<SimpleDialogDemo> {
         child: Column(
 
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.format_list_numbered),
+        onPressed: _openSimpleDialog,
       ),
     );
   }

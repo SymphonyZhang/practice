@@ -8,6 +8,7 @@ import './floating_actin_button.dart';
 import './popup_menu_button_demo.dart';
 import './form_demo.dart';
 import './checkbox_demo.dart';
+import './simple_dialog_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -19,6 +20,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: 'SimpleDialogDemo',
+            page: SimpleDialogDemo(),
+          ),
           ListItem(
             title: 'DateTime',
             page: DateTimeDemo(),

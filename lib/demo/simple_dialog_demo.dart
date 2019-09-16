@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class SimpleDialogDemo extends StatefulWidget {
   @override
   SimpleDialogDemoState createState() => SimpleDialogDemoState();
 }
 
+enum Option{
+  A,B,C
+}
+
 class SimpleDialogDemoState extends State<SimpleDialogDemo> {
 
-  _openSimpleDialog() {
-    showDialog(
+  String _choice = 'Nothing';
+
+  Future _openSimpleDialog() async {
+    final option = await showDialog(
         context: context,
         builder:(BuildContext context){
           return SimpleDialog(
@@ -17,25 +24,44 @@ class SimpleDialogDemoState extends State<SimpleDialogDemo> {
               SimpleDialogOption(
                 child: Text('Option A'),
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pop(context,Option.A);
                 },
               ),
               SimpleDialogOption(
                 child: Text('Option B'),
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pop(context,Option.B);
                 },
               ),
               SimpleDialogOption(
                 child: Text('Option C'),
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pop(context,Option.C);
                 },
               ),
             ],
           );
         }
     );
+
+    switch(option){
+      case Option.A:
+        setState(() {
+          _choice = 'A';
+        });
+        break;
+      case Option.B:
+        setState(() {
+          _choice = 'B';
+        });
+        break;
+      case Option.C:
+        setState(() {
+          _choice = 'C';
+        });
+        break;
+      default:
+    }
   }
 
   @override
@@ -48,7 +74,16 @@ class SimpleDialogDemoState extends State<SimpleDialogDemo> {
       body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Your choice is : $_choice'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
 
+              ],
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

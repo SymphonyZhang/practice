@@ -6,6 +6,34 @@ class AlertDialogDemo extends StatefulWidget {
 }
 
 class AlertDialogDemoState extends State<AlertDialogDemo> {
+
+  _openAlertDialog(){
+    showDialog(
+      context: context,
+      barrierDismissible: false,//点空白是否能取消dialog
+      builder: (BuildContext context){
+        return AlertDialog(
+          title: Text('AlertDialog'),
+          content: Text('Are you sure about this?'),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Cancle'),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            ),
+            FlatButton(
+              child: Text('OK'),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +49,10 @@ class AlertDialogDemoState extends State<AlertDialogDemo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
+                RaisedButton(
+                  child: Text('Open AlertDialog'),
+                  onPressed: _openAlertDialog,
+                ),
               ],
             ),
           ],

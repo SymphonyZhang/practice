@@ -21,12 +21,34 @@ class SnackBarDemoState extends State<SnackBarDemo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
+                SnackBarButton(),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class SnackBarButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      child: Text('Open Snack Bar'),
+      onPressed: (){
+        Scaffold.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Processing...'),
+              action: SnackBarAction(
+                label: 'OK',
+                onPressed: (){
+
+                },
+              ),
+            )
+        );
+      },
     );
   }
 }

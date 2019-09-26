@@ -18,18 +18,17 @@ class ChipDemoState extends State<ChipDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Wrap(//如果一行超过会另起一行
+              spacing: 8.0,//小部件之间的距离
+              runSpacing: 8.0,//行与行之间的间隔
               children: <Widget>[
                 Chip(
                   label: Text('Life'),
                 ),
-                SizedBox(width: 8.0,),
                 Chip(
                   label: Text('Sunset'),
                   backgroundColor: Colors.orange,
                 ),
-                SizedBox(width: 8.0,),
                 Chip(
                   label: Text('Wanghao'),
                   avatar: CircleAvatar(
@@ -37,7 +36,6 @@ class ChipDemoState extends State<ChipDemo> {
                     child: Text('仙'),
                   ),
                 ),
-                SizedBox(width: 8.0,),
                 Chip(
                   label: Text('Zhang'),
                   avatar: CircleAvatar(
@@ -45,7 +43,6 @@ class ChipDemoState extends State<ChipDemo> {
                     child: Text('张'),
                   ),
                 ),
-                SizedBox(width: 8.0,),
                 Chip(
                   label: Text('Wanghao'),
                   avatar: CircleAvatar(

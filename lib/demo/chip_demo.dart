@@ -50,6 +50,11 @@ class ChipDemoState extends State<ChipDemo> {
                     //child: Text('仙'),
                   ),
                 ),
+                Divider(//分割线
+                  color: Colors.grey,
+                  height: 32.0,
+                  //indent: 32.0,
+                ),
               ],
             ),
           ],

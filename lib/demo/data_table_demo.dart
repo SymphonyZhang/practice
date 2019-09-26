@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../model/post.dart';
 
 class DataTableDemo extends StatefulWidget {
   @override
@@ -21,31 +22,28 @@ class DataTableDemoState extends State<DataTableDemo> {
               columns: [
                 DataColumn(
                   label: Text('Title'),
+                  /*//自定义宽度
+                  label: Container(
+                    width: 150.0,
+                    child: Text('Title'),
+                  ),*/
                 ),
                 DataColumn(
                   label: Text('Author'),
                 ),
-              ],
-              rows: [
-                DataRow(
-                  cells: [
-                    DataCell(Text('hello~')),
-                    DataCell(Text('Symphony')),
-                  ],
-                ),
-                DataRow(
-                  cells: [
-                    DataCell(Text('hola~')),
-                    DataCell(Text('Symphony')),
-                  ],
-                ),
-                DataRow(
-                  cells: [
-                    DataCell(Text('你好~')),
-                    DataCell(Text('Symphony')),
-                  ],
+                DataColumn(
+                  label: Text('Image'),
                 ),
               ],
+              rows: posts.map((post) {
+                return DataRow(
+                  cells: [
+                    DataCell(Text(post.title)),
+                    DataCell(Text(post.author)),
+                    DataCell(Image.network(post.imageUrl)),
+                  ],
+                );
+              }).toList(),
             ),
           ],
         ),

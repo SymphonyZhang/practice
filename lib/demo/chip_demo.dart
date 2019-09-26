@@ -39,10 +39,18 @@ class ChipDemoState extends State<ChipDemo> {
                 ),
                 SizedBox(width: 8.0,),
                 Chip(
+                  label: Text('Zhang'),
+                  avatar: CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    child: Text('张'),
+                  ),
+                ),
+                SizedBox(width: 8.0,),
+                Chip(
                   label: Text('Wanghao'),
                   avatar: CircleAvatar(
                     backgroundImage: NetworkImage('http://b-ssl.duitang.com/uploads/item/201708/07/20170807003521_2tEPY.jpeg'),
-                    child: Text('仙'),
+                    //child: Text('仙'),
                   ),
                 ),
               ],

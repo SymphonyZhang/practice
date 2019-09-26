@@ -50,6 +50,13 @@ class ChipDemoState extends State<ChipDemo> {
                     //child: Text('仙'),
                   ),
                 ),
+                Chip(
+                  label: Text('City'),
+                  onDeleted: (){},
+                  deleteIcon: Icon(Icons.delete),
+                  deleteIconColor: Colors.redAccent,
+                  deleteButtonTooltipMessage:'Remove this tag',
+                ),
                 Divider(//分割线
                   color: Colors.grey,
                   height: 32.0,

@@ -30,43 +30,43 @@ class MaterialComponents extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           ListItem(
-            title: 'StepperDemo',
+            title: 'Stepper',
             page: StepperDemo(),
           ),
           ListItem(
-            title: 'CardDemo',
+            title: 'Card',
             page: CardDemo(),
           ),
           ListItem(
-            title: 'PaginatedDataTableDemo',
+            title: 'PaginatedDataTable',
             page: PaginatedDataTableDemo(),
           ),
           ListItem(
-            title: 'DataTableDemo',
+            title: 'DataTable',
             page: DataTableDemo(),
           ),
           ListItem(
-            title: 'ChipDemo',
+            title: 'Chip',
             page: ChipDemo(),
           ),
           ListItem(
-            title: 'ExpansionPanelDemo',
+            title: 'ExpansionPanel',
             page: ExpansionPanelDemo(),
           ),
           ListItem(
-            title: 'SnackBarDemo',
+            title: 'SnackBar',
             page: SnackBarDemo(),
           ),
           ListItem(
-            title: 'BottomSheetDemo',
+            title: 'BottomSheet',
             page: BottomSheetDemo(),
           ),
           ListItem(
-            title: 'AlertDialogDemo',
+            title: 'AlertDialog',
             page: AlertDialogDemo(),
           ),
           ListItem(
-            title: 'SimpleDialogDemo',
+            title: 'SimpleDialog',
             page: SimpleDialogDemo(),
           ),
           ListItem(

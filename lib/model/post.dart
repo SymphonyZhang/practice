@@ -11,7 +11,7 @@ class Post {
   final String description;
   final String imageUrl;
 
-  bool selected = false;
+  //bool selected = false;
 }
 
 final List<Post> posts = [

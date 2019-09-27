@@ -18,7 +18,33 @@ class StepperDemoState extends State<StepperDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
+            Theme(
+              data: Theme.of(context).copyWith(
+                primaryColor: Colors.black,
+              ),
+              child: Stepper(
+                steps: [
+                  Step(
+                    title: Text('Login'),
+                    subtitle: Text('Login first'),
+                    content: Text('Magna exercitation duis non sint eu nostrud.'),
+                    isActive: true,
+                  ),
+                  Step(
+                    title: Text('Login'),
+                    subtitle: Text('Login first'),
+                    content: Text('Magna exercitation duis non sint eu nostrud.'),
+                    isActive: true,
+                  ),
+                  Step(
+                    title: Text('Login'),
+                    subtitle: Text('Login first'),
+                    content: Text('Magna exercitation duis non sint eu nostrud.'),
+                    isActive: true,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

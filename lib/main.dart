@@ -9,7 +9,7 @@ import './demo/sliver_demo.dart';
 import './demo/Navigator_demo.dart';
 import './demo/form_demo.dart';
 import './demo/material_components.dart';
-import './demo/state_management_demo.dart';
+import 'package:practice/demo/state/state_management_demo.dart';
 
 void main() => runApp(App());
 

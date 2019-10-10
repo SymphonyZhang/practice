@@ -19,6 +19,28 @@ class StreamDemoHome extends StatefulWidget {
 }
 
 class StreamDemoHomeState extends State<StreamDemoHome> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    print('Create a stream.');
+    Stream<String> _streamDemo = Stream.fromFuture(fetchData());
+
+    print('Start listening on a stream.');
+    _streamDemo.listen(onData);
+    print('Initialize completed.');
+  }
+
+  void onData(String data){
+    print('$data');
+  }
+
+  Future<String> fetchData() async{
+    await Future.delayed(Duration(seconds: 3));
+    return 'Hello ~';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container();

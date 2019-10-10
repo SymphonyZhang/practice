@@ -1,36 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-class StateManagementDemo extends StatefulWidget {
-  @override
-  _StateManagementDemoState createState() => _StateManagementDemoState();
-}
-
-class _StateManagementDemoState extends State<StateManagementDemo> {
-  int _count = 0;
-
-  void _increaseCount() {
-    setState(() {
-      _count++;
-    });
-    print(_count);
-  }
-
+class StateManagementDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CounterProvider(
-        count: _count,
-        increaseCount: _increaseCount,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('StateManagementDemo'),
-            elevation: 0.0,
-          ),
-          body: CounterWrapper(),
-          floatingActionButton: FloatingActionButton(
+    return ScopedModel(
+      model: CounterModel(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('StateManagementDemo'),
+          elevation: 0.0,
+        ),
+        body: CounterWrapper(),
+        floatingActionButton: ScopedModelDescendant<CounterModel>(
+          rebuildOnChange: false,//不会重建小部件
+          builder: (context,_,model) => FloatingActionButton(
             child: Icon(Icons.add),
-            onPressed: _increaseCount,
+            onPressed: model.increaseCount,
           ),
         ),
+      ),
     );
   }
 }
@@ -49,11 +38,11 @@ class Counter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int count = CounterProvider.of(context).count;
-    final VoidCallback increaseCount = CounterProvider.of(context).increaseCount;
-    return ActionChip(
-      label: Text('$count'),
-      onPressed: increaseCount,
+    return ScopedModelDescendant<CounterModel>(
+      builder: (context,_,model) => ActionChip(
+        label: Text('${model.count}'),
+        onPressed: model.increaseCount,
+      ),
     );
   }
 }
@@ -72,5 +61,15 @@ class CounterProvider extends InheritedWidget {
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) {
     return true;
+  }
+}
+
+class CounterModel extends Model{
+  int _count = 0;
+  int get count => _count;
+
+  void increaseCount(){
+    _count++;
+    notifyListeners();//有变化会重建小部件
   }
 }

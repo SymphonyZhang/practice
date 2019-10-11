@@ -24,6 +24,7 @@ class StreamDemoHomeState extends State<StreamDemoHome> {
   StreamSubscription _streamSubscription;
   StreamController<String> _streamDemo;
   StreamSink _sinkDemo;
+  String _data= '...';
 
   @override
   void initState() {
@@ -56,6 +57,9 @@ class StreamDemoHomeState extends State<StreamDemoHome> {
   }
 
   void onData(String data){
+    setState(() {
+      _data = data;
+    });
     print('$data');
   }
 
@@ -95,27 +99,33 @@ class StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-       child: Row(
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: <Widget>[
-           FlatButton(
-             child: Text('Add'),
-             onPressed: _addDataToStream,
-           ),
-           FlatButton(
-             child: Text('Pause'),
-             onPressed: _pauseStream,
-           ),
-           FlatButton(
-             child: Text('Resume'),
-             onPressed: _resumeStream,
-           ),
-           FlatButton(
-             child: Text('Cancel'),
-             onPressed: _cancelStream,
-           ),
-         ],
-       ),
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('${_data}'),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  child: Text('Add'),
+                  onPressed: _addDataToStream,
+                ),
+                FlatButton(
+                  child: Text('Pause'),
+                  onPressed: _pauseStream,
+                ),
+                FlatButton(
+                  child: Text('Resume'),
+                  onPressed: _resumeStream,
+                ),
+                FlatButton(
+                  child: Text('Cancel'),
+                  onPressed: _cancelStream,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

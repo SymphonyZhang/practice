@@ -28,8 +28,16 @@ class StreamDemoHomeState extends State<StreamDemoHome> {
     Stream<String> _streamDemo = Stream.fromFuture(fetchData());
 
     print('Start listening on a stream.');
-    _streamDemo.listen(onData);
+    _streamDemo.listen(onData,onError: onError,onDone: onDone);
     print('Initialize completed.');
+  }
+
+  void onDone(){
+    print('Done !');
+  }
+
+  void onError(error){
+    print('$error');
   }
 
   void onData(String data){
@@ -38,7 +46,8 @@ class StreamDemoHomeState extends State<StreamDemoHome> {
 
   Future<String> fetchData() async{
     await Future.delayed(Duration(seconds: 3));
-    return 'Hello ~';
+    throw 'Something happened ';
+    //return 'Hello ~';
   }
 
   @override

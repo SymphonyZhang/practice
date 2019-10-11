@@ -9,8 +9,9 @@ import './demo/sliver_demo.dart';
 import './demo/Navigator_demo.dart';
 import './demo/form_demo.dart';
 import './demo/material_components.dart';
-import 'package:practice/demo/state/state_management_demo.dart';
+import 'demo/state/state_management_demo.dart';
 
+import 'demo/rxdart/rxdart_demo.dart';
 import 'demo/stream/stream_demo.dart';
 
 void main() => runApp(App());
@@ -25,7 +26,7 @@ class App extends StatelessWidget {
       //去除右上角debug条幅
       debugShowCheckedModeBanner: false,
       //home: NavigatorDemo(),
-      initialRoute: '/stream',
+      initialRoute: '/rxdart',
       //预先设置带名字的路由(页面)，在适当时可以通过路由名字操作页面显示和移除  例如Navigator_demo中About按钮
       //map类型 (名字:值[要打开的视图])
       routes: {
@@ -36,6 +37,7 @@ class App extends StatelessWidget {
         '/mdc':(context) => MaterialComponents(),
         '/state-management':(context) => StateManagementDemo(),
         '/stream':(context) => StreamDemo(),
+        '/rxdart':(context) => RxDartDemo(),
       },
       //设置主题
       theme: ThemeData(

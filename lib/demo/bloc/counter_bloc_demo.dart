@@ -8,12 +8,18 @@ class CounterHome extends StatelessWidget {
     CounterBloc _counterBloc = CounterProvider.of(context).bloc;
 
     return Center(
-      child: ActionChip(
-        label: Text('0'),
-        onPressed: (){
-          //_counterBloc.log();
-          _counterBloc.counter.add(1);
-        },
+      child: StreamBuilder(
+          stream: _counterBloc.count,
+          initialData: 0,
+          builder: (context,snapshot){
+            return ActionChip(
+              label: Text('${snapshot.data}'),
+              onPressed: () {
+                //_counterBloc.log();
+                _counterBloc.counter.add(1);
+              },
+            );
+          },
       ),
     );
   }
@@ -26,7 +32,7 @@ class CounterActionButton extends StatelessWidget {
 
     return FloatingActionButton(
       child: Icon(Icons.add),
-      onPressed: (){
+      onPressed: () {
         //_counterBloc.log();
         _counterBloc.counter.add(1);
       },
@@ -54,22 +60,32 @@ class CounterProvider extends InheritedWidget {
 }
 
 class CounterBloc {
+  int _count = 0;
+
   final _counterActionController = StreamController<int>();
+
   StreamSink<int> get counter => _counterActionController.sink;
 
-  CounterBloc(){
+  final _counterController = StreamController<int>();
+
+  Stream<int> get count => _counterController.stream;
+
+  CounterBloc() {
     _counterActionController.stream.listen(onData);
   }
 
-  void onData(int data){
+  void onData(int data) {
     print('$data');
+    _count = data + _count;
+    _counterController.add(_count);
   }
 
-  void disponse(){
+  void disponse() {
     _counterActionController.close();
+    _counterController.close();
   }
 
-  void log(){
+  void log() {
     print("BLoC");
   }
 }

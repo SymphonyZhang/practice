@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'map/symphony_demo_localizations.dart';
+
 class I18nDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,11 @@ class I18nDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('${locale.toString()}'),
+            Text(
+              //Localizations.of(context, SymphonyDemoLocalizations).title,
+              SymphonyDemoLocalizations.of(context).title,
+              style: Theme.of(context).textTheme.title,
+            ),
           ],
         ),
       ),

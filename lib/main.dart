@@ -18,6 +18,7 @@ import 'demo/state/state_management_demo.dart';
 import 'demo/rxdart/rxdart_demo.dart';
 import 'demo/stream/stream_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'demo/i18n/map/symphony_demo_localizations.dart';
 
 void main() => runApp(App());
 
@@ -33,6 +34,7 @@ class App extends StatelessWidget {
         return Locale('en','US');
       },
       localizationsDelegates: [//本地化
+        SymphonyDemoLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,//提供Material本地化字符串
         GlobalWidgetsLocalizations.delegate,//定义小部件默认的文字方向
       ],

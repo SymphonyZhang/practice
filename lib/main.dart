@@ -17,6 +17,7 @@ import 'demo/state/state_management_demo.dart';
 
 import 'demo/rxdart/rxdart_demo.dart';
 import 'demo/stream/stream_demo.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(App());
 
@@ -27,6 +28,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      localizationsDelegates: [//本地化
+        GlobalMaterialLocalizations.delegate,//提供Material本地化字符串
+        GlobalWidgetsLocalizations.delegate,//定义小部件默认的文字方向
+      ],
+      supportedLocales: [//设置应用支持的语言
+        //前者代表语言，后者代表地区
+        Locale('en','US'),
+        Locale('zh','CN'),
+      ],
       //去除右上角debug条幅
       debugShowCheckedModeBanner: false,
       //home: NavigatorDemo(),

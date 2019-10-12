@@ -18,20 +18,23 @@ class AnimationDemoHome extends StatefulWidget {
   _AnimationDemoHomeState createState() => _AnimationDemoHomeState();
 }
 
-class _AnimationDemoHomeState extends State<AnimationDemoHome> with TickerProviderStateMixin{
+class _AnimationDemoHomeState extends State<AnimationDemoHome>
+    with TickerProviderStateMixin {
   AnimationController animationDemoController;
 
   @override
   void initState() {
     super.initState();
     animationDemoController = AnimationController(
-        duration: Duration(milliseconds: 1000),
-        vsync: this);
-    animationDemoController.addListener((){
-      print('${animationDemoController.value}');
+        lowerBound: 32.0,
+        upperBound: 100.0,
+        duration: Duration(milliseconds: 3000), vsync: this);
+    animationDemoController.addListener(() {
+      //print('${animationDemoController.value}');
+      setState(() {});
     });
 
-    animationDemoController.forward();
+    //animationDemoController.forward();
   }
 
   @override
@@ -42,6 +45,13 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome> with TickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: ActionChip(
+        label: Text('${animationDemoController.value}'),
+        onPressed: () {
+          animationDemoController.forward();
+        },
+      ),
+    );
   }
 }

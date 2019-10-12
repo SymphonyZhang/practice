@@ -28,6 +28,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      //locale: Locale('en','US'),
+      localeResolutionCallback: (Locale locale,Iterable<Locale> supportedLocales){
+        return Locale('en','US');
+      },
       localizationsDelegates: [//本地化
         GlobalMaterialLocalizations.delegate,//提供Material本地化字符串
         GlobalWidgetsLocalizations.delegate,//定义小部件默认的文字方向

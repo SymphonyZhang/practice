@@ -29,10 +29,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      //locale: Locale('en','US'),
-      localeResolutionCallback: (Locale locale,Iterable<Locale> supportedLocales){
+      locale: Locale('zh','CN'),
+      /*localeResolutionCallback: (Locale locale,Iterable<Locale> supportedLocales){
         return Locale('en','US');
-      },
+      },*/
       localizationsDelegates: [//本地化
         SymphonyDemoLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,//提供Material本地化字符串

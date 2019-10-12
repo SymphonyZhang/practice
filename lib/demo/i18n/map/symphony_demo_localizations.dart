@@ -5,6 +5,13 @@ class SymphonyDemoLocalizations {
   final Locale locale;
   SymphonyDemoLocalizations(this.locale);
 
+  static SymphonyDemoLocalizations of(BuildContext context){
+    return Localizations.of<SymphonyDemoLocalizations>(
+        context,
+        SymphonyDemoLocalizations,
+    );
+  }
+
   static Map<String,Map<String,String>> _localized = {
     'en': {
       'title':'Hello',

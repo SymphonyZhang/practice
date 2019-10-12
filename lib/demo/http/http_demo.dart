@@ -25,8 +25,9 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   @override
   void initState() {
     super.initState();
-    //fetchPost();
-    final post = {
+    fetchPosts()
+      .then((value) => print(value));
+    /*final post = {
       'title': 'Hello',
       'description': 'nice to meet you.',
     };
@@ -43,17 +44,29 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     print(postJsonConverted is Map);
 
     final postModel = Post.fromJson(postJsonConverted);
-    print('title : ${postModel.title}  ,  description : ${postModel.description}');
+    print(
+        'title : ${postModel.title}  ,  description : ${postModel.description}');
 
-    print('${json.encode(postModel)}');
+    print('${json.encode(postModel)}');*/
   }
 
-  fetchPost() async {
+  Future<List<Post>> fetchPosts() async {
     final response = await http.get(
         'https://raw.githubusercontent.com/SymphonyZhang/Images/master/posts.json');
 
-    print('statusCode: ${response.statusCode}');
-    print('body: ${response.body}');
+    //print('statusCode: ${response.statusCode}');
+    //print('body: ${response.body}');
+
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+
+      List<Post> posts = responseBody['posts']
+          .map<Post>((item) => Post.fromJson(item))
+          .toList();
+      return posts;
+    } else {
+      throw Exception('Failed to fetch posts.');
+    }
   }
 
   @override
@@ -63,20 +76,32 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 }
 
 class Post {
+  final int id;
   final String title;
+  final String author;
   final String description;
+  final String imageUrl;
 
   Post(
+    this.id,
     this.title,
+    this.author,
     this.description,
+    this.imageUrl,
   );
 
   Post.fromJson(Map json)
-      : title = json['title'],
-        description = json['description'];
+      : id = json['id'],
+        title = json['title'],
+        author = json['author'],
+        description = json['description'],
+        imageUrl = json['imageUrl'];
 
   Map toJson() => {
-    'title':title,
-    'description':description,
-  };
+        'id': id,
+        'title': title,
+        'author': author,
+        'description': description,
+        'imageUrl': imageUrl,
+      };
 }

@@ -26,9 +26,9 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   void initState() {
     super.initState();
     //fetchPost();
-    final post ={
-      'title':'Hello',
-      'description':'nice to meet you.',
+    final post = {
+      'title': 'Hello',
+      'description': 'nice to meet you.',
     };
 
     print(post['title']);
@@ -41,17 +41,35 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     print(postJsonConverted['title']);
     print(postJsonConverted['description']);
     print(postJsonConverted is Map);
+
+    final postModel = Post.fromJson(postJsonConverted);
+    print('title : ${postModel.title}  ,  description : ${postModel.description}');
   }
-  
-  fetchPost() async{
-    final response = await http.get('https://raw.githubusercontent.com/SymphonyZhang/Images/master/posts.json');
+
+  fetchPost() async {
+    final response = await http.get(
+        'https://raw.githubusercontent.com/SymphonyZhang/Images/master/posts.json');
 
     print('statusCode: ${response.statusCode}');
     print('body: ${response.body}');
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Container();
   }
+}
+
+class Post {
+  final String title;
+  final String description;
+
+  Post(
+    this.title,
+    this.description,
+  );
+
+  Post.fromJson(Map json)
+      : title = json['title'],
+        description = json['description'];
 }

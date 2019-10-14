@@ -20,6 +20,7 @@ import 'demo/stream/stream_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 //import 'demo/i18n/map/symphony_demo_localizations.dart';
 import 'demo/i18n/intl/symphony_demo_localizations.dart';
+import 'demo/test/test_demo.dart';
 
 void main() => runApp(App());
 
@@ -48,7 +49,7 @@ class App extends StatelessWidget {
       //去除右上角debug条幅
       debugShowCheckedModeBanner: false,
       //home: NavigatorDemo(),
-      initialRoute: '/i18n',
+      initialRoute: '/test',
       //预先设置带名字的路由(页面)，在适当时可以通过路由名字操作页面显示和移除  例如Navigator_demo中About按钮
       //map类型 (名字:值[要打开的视图])
       routes: {
@@ -64,6 +65,7 @@ class App extends StatelessWidget {
         '/http':(context) => HttpDemo(),
         '/animation':(context) => AnimationDemo(),
         '/i18n':(context) => I18nDemo(),
+        '/test':(context) => TestDemo(),
       },
       //设置主题
       theme: ThemeData(

@@ -18,7 +18,8 @@ import 'demo/state/state_management_demo.dart';
 import 'demo/rxdart/rxdart_demo.dart';
 import 'demo/stream/stream_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'demo/i18n/map/symphony_demo_localizations.dart';
+//import 'demo/i18n/map/symphony_demo_localizations.dart';
+import 'demo/i18n/intl/symphony_demo_localizations.dart';
 
 void main() => runApp(App());
 
@@ -29,7 +30,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      locale: Locale('zh','CN'),
+      locale: Locale('en','US'),
+      //locale: Locale('zh','CN'),
       /*localeResolutionCallback: (Locale locale,Iterable<Locale> supportedLocales){
         return Locale('en','US');
       },*/

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'map/symphony_demo_localizations.dart';
+//import 'map/symphony_demo_localizations.dart';
+import 'intl/symphony_demo_localizations.dart';
 
 class I18nDemo extends StatelessWidget {
   @override
@@ -19,7 +20,8 @@ class I18nDemo extends StatelessWidget {
             Text('${locale.toString()}'),
             Text(
               //Localizations.of(context, SymphonyDemoLocalizations).title,
-              SymphonyDemoLocalizations.of(context).title,
+              //SymphonyDemoLocalizations.of(context).title,
+              SymphonyDemoLocalizations.of(context).greet('Symphony'),
               style: Theme.of(context).textTheme.title,
             ),
           ],
